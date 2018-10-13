@@ -1,0 +1,142 @@
+1. Ket noi
+class JDBCConnection
+	public static Connection getJDBCConnection(){
+		final String url="jdbc:mysql://localhost:3306/hello";
+		final String user="root";
+		final String password="";
+		
+		Class.forName("com.mysql.jdbc.Driver");
+		return DriverManager.getConnection(url,user,password);
+	}
+	
+	Connection connection = getJDBCConnection();
+	
+2. Statement và ResultSet
+	Connection con = JDBCConnection.getJDBCConnection()
+	Statement statement = con.createStatement()
+	
+	String sql= "SELECT * FROM DEMO";
+	ResultSet rs= statement.executeQuery(sql);
+	
+	While (rs.next()){
+		int id= rs.getInt("id");
+		String name= rs.getString("name");
+		
+		System.out.println(id + " " + name);
+	}
+
+3. create Drop statement JDBCConnection
+	String sql= "CREATE TABLE Person(id INT)";
+	int rs= statement.executeUpdate(sql);
+	System.out.println(rs);
+	
+	String sql= "DROP TABLE Person";
+	int rs= statement.executeUpdate(sql);
+	System.out.println(rs);
+	
+4. Insert, Update, Delete Statement JDBC 
+	a. Insert
+		String sql= "Insert into Person(id, name) values(1,'A')";
+		int rs= statement.executeUpdate(sql)
+	
+	b. Update
+		String sql= "update Person set name = '" + newName + "' where id= "+id;
+		int rs= statement.executeUpdate(sql)
+	
+	c. Delete
+		String sql= "Delete FROM Person where id= " + id;
+		int rs = statement.executeUpdate(sql)
+	
+5. PrepareStatement JDBC
+	a. SELECT
+		Connection connection = JDBCConnection.getJDBCConnection()
+		String sql= "select * from Person where id= ? and name= ?";
+		
+		PreparedStatement preparedStatement = connection.prepareStatement(sql)
+		preparedStatement.setInt(1,2);
+		preparedStatement.setString(2,"B");
+		
+		ResultSet rs= preparedStatement.executeQuery();
+		
+	b. Insert
+		String sql= "insert into Person(id, name) values(?,?)";
+		PreparedStatement preparedStatement= connection.prepareStatement(sql);
+		preparedStatement.setInt(1,id);//id truyền vào
+		preparedStatement.setString(2,name);//tên truyền vào
+		int rs = preparedStatement.executeUpdate()
+		
+	c. Update
+		String sql= "update Person set name= ? where id = ?";
+		PreparedStatement preparedStatement= connection.prepareStatement(sql);
+		preparedStatement.setString(1,name);//tên truyền vào
+		preparedStatement.setInt(2,id);//id truyền vào
+		int rs = preparedStatement.executeUpdate()
+	
+	d. Delete
+		String sql= "delete from Person where id = ?";
+		PreparedStatement preparedStatement= connection.prepareStatement(sql);
+		preparedStatement.setString(1,id);		
+		int rs = preparedStatement.executeUpdate()
+	
+6. Transaction JDBC
+Giúp đảm bảo tính toàn vẹn dữ liệu
+	connection.setAutoComit(false);
+	String sql1="insert into person(id,name) values (2,'A')";
+	String sql2="delete from person where id=4";
+	
+	statement.executeUpdate(sql2)
+	statement.executeUpdate(sql1)
+	connection.comit()
+	
+7. Batch Processing JDBC
+Tránh quá tải khi thực thi nhiều câu lệnh, nên chia thành từng batch 1 để thực thi
+	a. Statement
+		String sql1= "insert into person(id,name) values (1,'A')";
+		String sql2= "insert into person(id,name) values (2,'A')";
+		String sql3= "insert into person(id,name) values (3,'A')";
+		
+		Statement statement= connection.createStatement();
+		statement.addBatch(sql1);
+		statement.addBatch(sql2);
+		statement.addBatch(sql3);
+		
+		statement.executeBatch();
+		
+	b. PrepareStatement
+		String sql4= "insert into person(id,name) values(?,?)";
+		PreparedStatement preparedStatement= connection.prepareStatement(sql4);
+		
+		preparedStatement.setInt(1,4);
+		preparedStatement.setString(2,"B")
+		preparedStatement.addBatch();
+		
+		preparedStatement.executeBatch();
+	
+8. ResultSetMetaData JDBC
+	String sql= "select * from person";
+	ResultSet resultSet = statement.executeQuery(sql);
+	ResultSetMetaData metaData= resultSet.getMetaData();
+	
+	System.out.println(metaData.getColumnCount());
+	System.out.println(metaData.getColumnName(1));
+	System.out.println(metaData.getColumnName(2));
+	System.out.println(metaData.getColumnTypeName(1));
+	System.out.println(metaData.getTableName(1));
+
+9. DatabaseMetaData JDBC
+	DatabaseMetaData databaseMetaData = connection.getMetaData();
+	
+	System.out.println(databaseMetaData.getDatabaseProductName());
+	System.out.println(databaseMetaData.getUserName());
+	System.out.println(databaseMetaData.getURL());
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
