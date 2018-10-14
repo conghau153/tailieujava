@@ -1,0 +1,47 @@
+import com.mongodb.Mongo;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBObject;
+import com.mongodb.DBCursor;
+
+1. Kết nối MongoDB JDBC trong java
+	a. không có mật khẩu( dùng localhost, port:27017):
+		Mongo m = new Mongo();
+	
+	b. Có mật khẩu:
+		
+	c. Hiện danh sách các database:
+		
+2. Tạo Database mới
+	DB db = m.getDB( "mydb" );
+	
+3. Delete Database
+	
+	
+4. Tạo Collection mới
+	DBCollection coll = db.getCollection("testCollection")
+	
+5. Delete Collection
+	
+	
+6. Insert document
+	BasicDBObject doc = new BasicDBObject();
+	doc.put("name", "MongoDB"); 
+	doc.put("type", "database"); 
+	doc.put("count", 1);
+
+	BasicDBObject info = new BasicDBObject();
+	info.put("x", 203); info.put("y", 102);
+	
+	doc.put("info", info);
+	coll.insert(doc);
+		
+7. Find document
+	
+	
+8. Update document
+	
+	
+9. Delete document
+	
