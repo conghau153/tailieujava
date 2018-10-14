@@ -1,0 +1,104 @@
+1. Kết nối MongoDB JDBC trong java
+	a. không có mật khẩu( dùng localhost, port:27017):
+		MongoClient mongoClient= new MongoClient()
+	
+	b. Có mật khẩu:
+		private final static String HOST = "localhost";
+		private final static String USERNAME = "sampledbadmin";
+		private final static String PASSWORD = "@bc123#";
+		private final static String DB = "test";
+	
+		MongoCredential credential = MongoCredential.createCredential(USERNAME, DB, PASSWORD.toCharArray());
+        MongoClient mongoClient = new MongoClient(new ServerAddress(HOST), Arrays.asList(credential));
+        MongoDatabase db = mongoClient.getDatabase("sampledb");
+		
+	c. Hiện danh sách các database:
+		MongoClient mongoClient = new MongoClient("localhost", 27017);
+		for (String t : mongoClient.listDatabaseNames()) {
+		  System.out.println(t);
+		}
+2. Tạo Database mới
+	MongoDatabase mongoDatabase = mongoClient.getDatabase("demo");
+	
+3. Delete Database
+	MongoClient mongoClient = new MongoClient("localhost", 27017);
+	mongoClient.dropDatabase("demo");
+	
+4. Tạo Collection mới
+	MongoDatabase db = mongoClient.getDatabase(DB);
+    MongoCollection<Document> coll = db.getCollection("users");
+	
+5. Delete Collection
+	db.COLLECTION_NAME.drop()
+	
+6. Insert document
+	MongoClient mongoClient = new MongoClient(HOST, PORT);
+    MongoDatabase db = mongoClient.getDatabase(DB);
+    MongoCollection<Document> coll = db.getCollection("users");
+
+	List<Document> kids = new ArrayList<Document>();
+		kids.add(new Document("name", "mike"));
+		kids.add(new Document("name", "faye"));
+    Document doc = new Document("name", "john")
+        .append("age", 35)
+        .append("kids", kids)
+        .append("info", new Document("email", "john@mail.com").append("phone", "876-134-667"));
+	coll.insertOne(doc);
+	
+	//===============================//
+	/*tự định nghĩa format cho ID document*/
+	doc = new Document("_id", "12345678")
+		.append("name", "hanoi")
+		.append("age", 31)
+		.append("info", new Document("email", "hanoia@mail.com").append("phone", "333-555-777"));
+	coll.insertOne(doc);
+	
+	//===============================//
+	/* insert nhiều document */
+	List<Document> documents = new ArrayList<Document>();
+		for (int i = 0; i < 10; i++) {
+			documents.add(new Document("key", UUID.randomUUID().toString()));
+		}
+	coll.insertMany(documents);
+		
+7. Find document
+	Document query = new Document("name", "frank")
+                    .append("age", new Document("$gt", 10));
+    MongoCursor<Document> cursor = coll.find(query).iterator();
+    
+	try {
+        while (cursor.hasNext()) {
+				Document doc = cursor.next();
+				System.out.println(doc.toJson());
+			}
+        } finally {
+			cursor.close();
+        }
+		
+	//=====================================//
+	/*query các bản ghi mà có tuổi từ 20 cho đến 40 như sau:*/
+	MongoCursor<Document> cursor = coll.find(and(gt("age", 20), lte("age", 40))).iterator();
+	
+	//=====================================//
+	/*Nếu muốn lấy ra bản ghi đầu tiên query ra thì ta hãy sử dụng hàm first()*/
+	Document myDoc = coll.find(eq("name", "john")).first();
+	
+	
+8. Update document
+	MongoCollection<org.bson.Document> coll = db.getCollection("users");
+	coll.updateOne(eq("name", "john"), new Document("$set", new Document("age", 50)));
+	
+	//=====================================//
+	UpdateResult updateResult = coll.updateMany(eq("name", "john"), new Document("$set", new Document("age", 50)));
+	
+	//=====================================//
+	System.out.println(updateResult.getModifiedCount());
+
+9. Delete document
+	MongoCollection<org.bson.Document> coll = db.getCollection("users");
+	coll.deleteOne(eq("name", "john"));
+	
+	//=====================================//
+	/*Xóa tất cả các bản ghi có “name” là “john”*/
+	DeleteResult deleteResult = coll.deleteMany(eq("name", "john"));
+	System.out.println(deleteResult.getDeletedCount());
