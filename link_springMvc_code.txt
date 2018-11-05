@@ -1,0 +1,6 @@
+http://findnerd.com/list/view/Spring-MVC-and-MongoDB/2240/
+https://vitalflux.com/spring-data-mongodb-hello-world-spring-mvc-example/
+https://dzone.com/articles/spring-data-mongodb-hello
+https://spring.io/guides/gs/accessing-data-mongodb/
+https://examples.javacodegeeks.com/enterprise-java/spring/spring-data-mongodb-example/
+
