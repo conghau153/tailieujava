@@ -4,3 +4,6 @@ https://dzone.com/articles/spring-data-mongodb-hello
 https://spring.io/guides/gs/accessing-data-mongodb/
 https://examples.javacodegeeks.com/enterprise-java/spring/spring-data-mongodb-example/
 
+https://blog.trifork.com/2012/12/11/properly-testing-spring-mvc-controllers/
+https://springframework.guru/unit-testing-spring-mvc-spring-boot-1-4-part-1/
+https://digitaljoel.nerd-herders.com/2011/02/05/mock-testing-spring-mvc-controller/
