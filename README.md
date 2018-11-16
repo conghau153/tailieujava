@@ -21,3 +21,5 @@ http://consistentcoder.com/spring-security-4-xml-config-in-memory-authentication
 https://stackjava.com/spring/code-vi-du-spring-security-tao-form-login-xml-config.html
 https://www.mkyong.com/spring-security/spring-security-form-login-example/
 http://websystique.com/spring-security/spring-security-4-custom-login-form-annotation-example/
+
+http://websystique.com/spring-security/spring-security-4-hibernate-role-based-login-example/
