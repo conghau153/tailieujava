@@ -18,11 +18,15 @@ https://digitaljoel.nerd-herders.com/2011/02/05/mock-testing-spring-mvc-controll
 spring security
 
 http://consistentcoder.com/spring-security-4-xml-config-in-memory-authentication-annotation-security-method
-
 https://stackjava.com/spring/code-vi-du-spring-security-tao-form-login-xml-config.html
 https://www.mkyong.com/spring-security/spring-security-form-login-example/
 http://websystique.com/spring-security/spring-security-4-custom-login-form-annotation-example/
-
 http://websystique.com/spring-security/spring-security-4-hibernate-role-based-login-example/
 
+Java Messaging Service
 
+https://examples.javacodegeeks.com/enterprise-java/spring/spring-jms-example/
+https://examples.javacodegeeks.com/enterprise-java/jms/jms-client-example/
+http://websystique.com/springmvc/spring-4-mvc-jms-activemq-annotation-based-example/
+https://javabeat.net/integrating-spring-with-jms/
+https://docs.spring.io/spring/docs/4.1.x/spring-framework-reference/html/jms.html#jms-connection-factory
