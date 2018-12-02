@@ -30,3 +30,7 @@ https://examples.javacodegeeks.com/enterprise-java/jms/jms-client-example/
 http://websystique.com/springmvc/spring-4-mvc-jms-activemq-annotation-based-example/
 https://javabeat.net/integrating-spring-with-jms/
 https://docs.spring.io/spring/docs/4.1.x/spring-framework-reference/html/jms.html#jms-connection-factory
+
+Junit Test Client Rest API
+
+https://www.javacodegeeks.com/2013/08/jersey-client-testing-external-calls.html
