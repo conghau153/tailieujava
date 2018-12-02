@@ -34,3 +34,13 @@ https://docs.spring.io/spring/docs/4.1.x/spring-framework-reference/html/jms.htm
 Junit Test Client Rest API
 
 https://www.javacodegeeks.com/2013/08/jersey-client-testing-external-calls.html
+https://www.javacodegeeks.com/2012/09/testing-client-side-of-restful-services.html
+http://www.briansjavablog.com/2017/05/rest-endpoint-testing-with-mockmvc.html
+https://stackoverflow.com/questions/21413738/unit-testing-jersey-restful-services
+https://memorynotfound.com/test-jersey-rest-service-with-junit/
+https://dzone.com/articles/how-test-rest-api-junit
+https://stackoverflow.com/questions/29358940/how-to-test-a-jersey-rest-web-service
+http://appsdeveloperblog.com/test-restful-web-service-junit-mockito/
+https://www.hascode.com/2010/11/creating-a-rest-client-step-by-step-using-jax-rs-jax-b-and-jersey/
+https://howtodoinjava.com/jersey/jersey-rest-client-authentication/
+
