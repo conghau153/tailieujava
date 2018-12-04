@@ -44,3 +44,7 @@ http://appsdeveloperblog.com/test-restful-web-service-junit-mockito/
 https://www.hascode.com/2010/11/creating-a-rest-client-step-by-step-using-jax-rs-jax-b-and-jersey/
 https://howtodoinjava.com/jersey/jersey-rest-client-authentication/
 
+spring-core
+https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#spring-core
+
+
