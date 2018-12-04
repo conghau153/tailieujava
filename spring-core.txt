@@ -1,0 +1,15 @@
+Focus on these parts:
+	- The IoC Container
+	- Bean
+	- Singleton bean & prototype bean
+	- Autowire
+	- Post-construct & Pre-destroy
+Resources
+	- UrlResource
+	- ClassPathResource
+	- FileSystemResource
+	- Application contexts and Resource paths
+Aspect Oriented Programming with Spring
+	- AOP Concept
+	- Using AspectJ with Spring applications
+	- Spring AOP APIs
