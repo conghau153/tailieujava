@@ -47,4 +47,11 @@ https://howtodoinjava.com/jersey/jersey-rest-client-authentication/
 spring-core
 https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#spring-core
 
+rest api client server
+https://docs.oracle.com/cd/E24329_01/web.1211/e24983/client.htm#RESTF164
+https://o7planning.org/vi/11217/tao-ung-dung-java-restful-client-voi-jersey-client#a4484419
+http://www.mkyong.com/webservices/jax-rs/restful-java-client-with-jersey-client/
+https://o7planning.org/vi/11217/tao-ung-dung-java-restful-client-voi-jersey-client#a4462053
+https://www.java2novice.com/restful-web-services/http-basic-authentication/
+
 
