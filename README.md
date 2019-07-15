@@ -54,4 +54,6 @@ http://www.mkyong.com/webservices/jax-rs/restful-java-client-with-jersey-client/
 https://o7planning.org/vi/11217/tao-ung-dung-java-restful-client-voi-jersey-client#a4462053
 https://www.java2novice.com/restful-web-services/http-basic-authentication/
 
-
+tomcat intellij
+https://stackoverflow.com/questions/22047860/tomcat-in-intellij-idea-community-edition
+https://stackoverflow.com/questions/26883836/tomcat-8-maven-plugin-for-java-8
